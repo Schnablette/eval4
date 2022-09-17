@@ -7,20 +7,24 @@
 const hre = require("hardhat");
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
+  const [deployer] = await hre.ethers.getSigners();
 
-  const lockedAmount = hre.ethers.utils.parseEther("1");
+  const Token = await hre.ethers.getContractFactory("MyToken");
+  const token = await Token.deploy();
 
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  console.log("Token deployed to: ", token.address);
 
-  await lock.deployed();
+  const NFT = await hre.ethers.getContractFactory("MyNFT");
+  const nft = await NFT.deploy();
 
-  console.log(
-    `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
-  );
+  nft.safeMint(deployer.address, 0);
+
+  const Auction = await hre.ethers.getContractFactory("Auction");
+  const auction = await Auction.deploy();
+
+  await auction.deployed();
+
+  console.log(`Auction deployed to: ${auction.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
