@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/annschnabel/code/eval4/contracts/Auction.sol": {
-      "lastModificationDate": 1663287058425,
-      "contentHash": "e1a6e911fb12c4a19bf825bd5e18fe29",
+      "lastModificationDate": 1663547067319,
+      "contentHash": "91d6ee516a63ef4190c5576c5f05eddd",
       "sourceName": "contracts/Auction.sol",
       "solcConfig": {
         "version": "0.8.17",

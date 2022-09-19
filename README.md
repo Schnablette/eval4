@@ -1,13 +1,9 @@
-# Sample Hardhat Project
+# Sample Auction UI
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+Instructions: 
+- Open three terminals
+- In one, run `npx hardhat node`
+- In the second, run `npx hardhat run scripts/deploy.js --network localhost`
+- In the third, run `npm start`
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+This should allow you to interact with the contract and UI at the same time.

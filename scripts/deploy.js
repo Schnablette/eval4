@@ -7,7 +7,7 @@
 const hre = require("hardhat");
 
 async function main() {
-  const [deployer] = await hre.ethers.getSigners();
+  const [deployer, addr1, addr2, addr3] = await hre.ethers.getSigners();
 
   const Token = await hre.ethers.getContractFactory("MyToken");
   const token = await Token.deploy();
@@ -25,6 +25,11 @@ async function main() {
   await auction.deployed();
 
   console.log(`Auction deployed to: ${auction.address}`);
+
+  await nft.approve(auction.address, 0);
+  await token.mint(addr1.address, 100);
+  await token.mint(addr2.address, 100);
+  await token.mint(addr3.address, 100);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -36,6 +36,12 @@ h4 {
   font-weight: 400;
 }
 
+dl {
+   @apply text-sm;
+   @apply text-gray-600;
+   margin-top: 1rem;
+  }
+
 label {
   font-size: .85rem;
 }

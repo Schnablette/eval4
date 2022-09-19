@@ -11,6 +11,12 @@ module.exports = {
       url: process.env.GOERLI_TESTNET_URL_ENDPOINT,
       accounts: [process.env.GOERLI_WALLET_PRIVATE_KEY],
     },
+    hardhat: {
+      mining: {
+        auto: true,
+        interval: 5000,
+      },
+    },
   },
   etherscan: {
     apiKey: process.env.GOERLI_ETHERSCAN_KEY,

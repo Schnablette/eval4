@@ -31,13 +31,12 @@ contract Auction is Ownable {
     constructor(
         IERC721 _nft,
         uint256 _nftId,
-        IERC20 _token,
-        uint256 _timeInHours
+        IERC20 _token
     ) {
         nft = _nft;
         nftId = _nftId;
         token = _token;
-        auctionEndTime = block.timestamp + _timeInHours * 1 hours;
+        auctionEndTime = block.timestamp + 1 hours;
     }
 
     /// @dev Only owner can start auction
